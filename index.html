@@ -69,7 +69,22 @@
         .cv-text {
             flex: 1;                /* Le texte prend le reste de la largeur */
         }
+        .about-content {
+        display: flex;
+        align-items: center;   /* centre verticalement */
+        gap: 20px;             /* espace entre texte et image */
+        }
+
+        .about-content p {
+        flex: 1;               /* prend tout l’espace disponible */
+        }
+
+        .about-image {
+        width: 200px;           /* taille de l'image */
+        border-radius: 10px;    /* coins arrondis, optionnel */
+        }
     </style>
+    
 </head>
 <body>
     <header>
@@ -90,6 +105,7 @@
         <h2>About</h2>
         <p style="text-align: justify;">With a background in fundamental physics and modelisation, I am working on computational neuroscience issues with a particular interest in scientific programming, modeling, non-linear systems and complex networks.
             I have a PhD in Science and Technologies of Information and Communication from CY Cergy Paris Université and a PhD in Computational Neuroscience from the University of Warwick.</p>
+        <img src="juliette_courson.png" alt="" class="about-image">
     </section>
     
 <section id="cv" class="active">
