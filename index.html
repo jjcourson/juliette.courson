@@ -364,9 +364,23 @@
 
     <script>
         function showSection(id) {
-            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+        // Hide all sections
+        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+        // Show selected section
+        document.getElementById(id).classList.add('active');
+        // Save the current section in localStorage
+        localStorage.setItem('currentSection', id);
+    }
+
+    // On page load, restore the last section
+    window.addEventListener('DOMContentLoaded', () => {
+        const lastSection = localStorage.getItem('currentSection');
+        if (lastSection && document.getElementById(lastSection)) {
+            showSection(lastSection);
+        } else {
+            showSection('about'); // fallback
         }
+    });
     </script>
 </body>
 </html>
