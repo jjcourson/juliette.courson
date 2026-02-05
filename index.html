@@ -364,23 +364,24 @@
 
     <script>
         function showSection(id) {
-        // Hide all sections
-        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-        // Show selected section
-        document.getElementById(id).classList.add('active');
-        // Save the current section in localStorage
-        localStorage.setItem('currentSection', id);
-    }
+            // Hide all sections
+            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+            // Show selected section
+            document.getElementById(id).classList.add('active');
+            // Save the current section in sessionStorage (only for this session)
+            sessionStorage.setItem('currentSection', id);
+        }
 
-    // On page load, restore the last section
-    window.addEventListener('DOMContentLoaded', () => {
-        const lastSection = localStorage.getItem('currentSection');
+        // On page load, restore the last section **only if it's the same session**
+        window.addEventListener('DOMContentLoaded', () => {
+        const lastSection = sessionStorage.getItem('currentSection');
         if (lastSection && document.getElementById(lastSection)) {
             showSection(lastSection);
         } else {
-            showSection('about'); // fallback
+            showSection('about'); // default if new session
         }
     });
-    </script>
+</script>
+
 </body>
 </html>
